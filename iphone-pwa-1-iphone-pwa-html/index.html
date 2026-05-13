@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0e6f65">
+    <meta name="description" content="オフラインで使えるユーロ円換算PWA">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="ユーロ円">
+    <title>ユーロ円換算</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <p>EUR / JPY</p>
+        <h1>ユーロ円換算</h1>
+      </header>
+
+      <section class="panel" aria-labelledby="rate-title">
+        <h2 id="rate-title">レート</h2>
+        <label class="field" for="rateInput">
+          <span>1ユーロ</span>
+          <span class="input-row">
+            <input
+              id="rateInput"
+              name="rate"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="165.50"
+              aria-describedby="rateStatus"
+            >
+            <span class="unit">円</span>
+          </span>
+        </label>
+        <p class="status" id="rateStatus" aria-live="polite"></p>
+      </section>
+
+      <section class="panel converter" aria-labelledby="converter-title">
+        <h2 id="converter-title">換算</h2>
+        <label class="field" for="euroInput">
+          <span>ユーロ金額</span>
+          <span class="input-row euro-row">
+            <span class="currency">€</span>
+            <input
+              id="euroInput"
+              name="euro"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              placeholder="0.00"
+            >
+          </span>
+        </label>
+
+        <div class="result" aria-live="polite">
+          <span>日本円</span>
+          <output id="yenOutput" for="rateInput euroInput">--</output>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
